@@ -8,6 +8,8 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   static const int rgbMaxNumber = 255;
+  static const int averageRgb = 382;
+  static const int averageColorAlpha = 123;
 
   Color colorText = Colors.black;
   int colorAlpha = rgbMaxNumber;
@@ -20,12 +22,26 @@ class _HomePageScreenState extends State<HomePageScreen> {
     return Random().nextInt(rgbMaxNumber);
   }
 
+  void validateTextColor() {
+    if (colorAlpha >= averageColorAlpha) {
+      colorText = colorRed + colorBlue + colorGreen >= averageRgb
+          ? Colors.black
+          : Colors.white;
+    } else {
+      if (colorRed + colorBlue + colorGreen < averageRgb) {
+        colorText = Colors.black;
+      }
+      colorText = Colors.black;
+    }
+  }
+
   void updateColor() {
     setState(() {
       colorAlpha = generateRandomNumber();
       colorRed = generateRandomNumber();
       colorBlue = generateRandomNumber();
       colorGreen = generateRandomNumber();
+      validateTextColor();
     });
   }
 
