@@ -31,10 +31,13 @@ jobs:
         with:
           fatal-infos: true
           
+      - name: Flutter channel beta
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: flutter channel beta
+        
       - name: Flutter Upgrade
         if: steps.check_files.outputs.files_exists == 'true'
-        run: flutter channel beta flutter upgrade
-
+        run: flutter upgrade -v
 
       - name: Dart Code Metrics
         if: steps.check_files.outputs.files_exists == 'true'
