@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:hey_there/usecases/generate_random_number.dart';
-import 'package:hey_there/usecases/change_text_color_by_background_color.dart';
+import 'package:hey_there/features/change_text_color/usecase/change_text_color_by_background_color_usecase.dart';
+import 'package:hey_there/features/change_text_color/usecase/change_text_color_by_background_color_usecase_impl.dart';
+import 'package:hey_there/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase.dart';
+import 'package:hey_there/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase_impl.dart';
 
 /// Screen where we will see Randomly Background Color
 class HomePageScreen extends StatefulWidget {
   final String title;
 
-  const HomePageScreen({super.key, required this.title});
+  const HomePageScreen({
+    super.key,
+    required this.title,
+  });
 
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+  final GenerateRandomNumberUsecase generateRandomNumberUsecase =
+      GenerateRandomNumberUsecaseImpl();
+  final ChangeTextColorByBackgroundColorUsecase
+      changeTextColorByBackgroundColorUsecase =
+      ChangeTextColorByBackgroundColorUsecaseImpl();
+
   static const int rgbMaxNumber = 255;
 
   Color colorText = Colors.black;
@@ -24,12 +35,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   void updateColor() {
     setState(() {
-      colorAlpha = generateRandomNumber(rgbMaxNumber);
-      colorRed = generateRandomNumber(rgbMaxNumber);
-      colorBlue = generateRandomNumber(rgbMaxNumber);
-      colorGreen = generateRandomNumber(rgbMaxNumber);
-      colorText = changeTextColorByBackgroundColor(
-          colorText, colorAlpha, colorRed, colorBlue, colorGreen);
+      colorAlpha =
+          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+      colorRed =
+          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+      colorBlue =
+          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+      colorGreen =
+          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+      colorText = changeTextColorByBackgroundColorUsecase
+          .changeTextColorByBackgroundColor(
+              colorText, colorAlpha, colorRed, colorBlue, colorGreen);
     });
   }
 
