@@ -1,5 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:hey_there/usecases/generate_random_number.dart';
+import 'package:hey_there/usecases/change_text_color_by_background_color.dart';
 
 /// Screen where we will see Randomly Background Color
 class HomePageScreen extends StatefulWidget {
@@ -13,8 +14,6 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   static const int rgbMaxNumber = 255;
-  static const int averageRgb = 382;
-  static const int averageColorAlpha = 123;
 
   Color colorText = Colors.black;
   int colorAlpha = rgbMaxNumber;
@@ -23,30 +22,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
   int colorBlue = rgbMaxNumber;
   double fontSize = 25.0;
 
-  int generateRandomNumber() {
-    return Random().nextInt(rgbMaxNumber);
-  }
-
-  void validateTextColor() {
-    if (colorAlpha >= averageColorAlpha) {
-      colorText = colorRed + colorBlue + colorGreen >= averageRgb
-          ? Colors.black
-          : Colors.white;
-    } else {
-      if (colorRed + colorBlue + colorGreen < averageRgb) {
-        colorText = Colors.black;
-      }
-      colorText = Colors.black;
-    }
-  }
-
   void updateColor() {
     setState(() {
-      colorAlpha = generateRandomNumber();
-      colorRed = generateRandomNumber();
-      colorBlue = generateRandomNumber();
-      colorGreen = generateRandomNumber();
-      validateTextColor();
+      colorAlpha = generateRandomNumber(rgbMaxNumber);
+      colorRed = generateRandomNumber(rgbMaxNumber);
+      colorBlue = generateRandomNumber(rgbMaxNumber);
+      colorGreen = generateRandomNumber(rgbMaxNumber);
+      colorText = changeTextColorByBackgroundColor(
+          colorText, colorAlpha, colorRed, colorBlue, colorGreen);
     });
   }
 
