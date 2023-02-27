@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hey_there/screens/home_page_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+/// Our initialization class
+class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

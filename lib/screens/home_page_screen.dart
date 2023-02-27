@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+/// Screen where we will see Randomly Background Color
 class HomePageScreen extends StatefulWidget {
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
