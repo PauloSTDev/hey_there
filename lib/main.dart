@@ -14,7 +14,7 @@ class Main extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePageScreen(),
+      home: HomePageScreen(title: "Test Task"),
     );
   }
 }

@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 /// Screen where we will see Randomly Background Color
 class HomePageScreen extends StatefulWidget {
+  final String title;
+
+  const HomePageScreen({super.key, required this.title});
+
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
 }
@@ -48,20 +52,26 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => updateColor(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Test Task"),
-        ),
-        body: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Color.fromARGB(colorAlpha, colorRed, colorGreen, colorBlue),
+    return MaterialApp(
+      home: GestureDetector(
+        onTap: () => updateColor(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              widget.title,
+            ),
+            centerTitle: true,
           ),
-          child: Center(
-            child: Text(
-              'Hey there',
-              style: TextStyle(fontSize: fontSize, color: colorText),
+          body: DecoratedBox(
+            decoration: BoxDecoration(
+              color:
+                  Color.fromARGB(colorAlpha, colorRed, colorGreen, colorBlue),
+            ),
+            child: Center(
+              child: Text(
+                'Hey there',
+                style: TextStyle(fontSize: fontSize, color: colorText),
+              ),
             ),
           ),
         ),
