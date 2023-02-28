@@ -66,8 +66,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
         onTap: () => updateColor(),
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor:
+                (colorText == Colors.black) ? Colors.grey : Colors.black45,
             title: Text(
               widget.title,
+              style: TextStyle(color: colorText),
             ),
             centerTitle: true,
           ),
