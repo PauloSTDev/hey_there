@@ -4,8 +4,8 @@ import 'package:hey_there/src/features/change_text_color/usecase/change_text_col
 class ChangeTextColorByBackgroundColorUsecaseImpl
     implements ChangeTextColorByBackgroundColorUsecase {
   @override
-  Color changeTextColorByBackgroundColor(Color colorText, int colorAlpha,
-      int colorRed, int colorBlue, int colorGreen) {
+  Color changeTextColorByBackgroundColor(
+      int colorAlpha, int colorRed, int colorBlue, int colorGreen) {
     ///Average max of Alpha Color, we will use to know if colorAlpha is above this average
     final int averageMaxColorAlpha = 255 ~/ 2;
 
@@ -19,18 +19,18 @@ class ChangeTextColorByBackgroundColorUsecaseImpl
     if (colorAlpha >= averageMaxColorAlpha) {
       ///Compare if summedColors is above or equal your average max
       if (summedRGB >= averageMaxRgb) {
-        return colorText = Colors.black;
+        return Colors.black;
       } else {
         ///Compare if at least two colors from RGB are above or equal the average max
         if (colorRed + colorBlue >= averageMaxRgb ||
             colorRed + colorGreen >= averageMaxRgb ||
             colorGreen + colorBlue >= averageMaxRgb) {
-          return colorText = Colors.black;
+          return Colors.black;
         }
-        return colorText = Colors.white;
+        return Colors.white;
       }
     } else {
-      return colorText = Colors.black;
+      return Colors.black;
     }
   }
 }

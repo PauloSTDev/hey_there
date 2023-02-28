@@ -47,7 +47,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   void getTextColor() {
     colorText = changeTextColorByBackgroundColorUsecase
         .changeTextColorByBackgroundColor(
-            colorText, colorAlpha, colorRed, colorBlue, colorGreen);
+            colorAlpha, colorRed, colorBlue, colorGreen);
   }
 
   void updateColor() {
