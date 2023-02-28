@@ -51,6 +51,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ///We need MaterialApp because of Error in the Tests: no directionality widget found
+    ///Doc: https://flutteragency.com/no-directionality-widget-found-in-flutter/
     return MaterialApp(
       home: GestureDetector(
         onTap: () => updateColor(),
