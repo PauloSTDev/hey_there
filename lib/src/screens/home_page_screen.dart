@@ -33,19 +33,27 @@ class _HomePageScreenState extends State<HomePageScreen> {
   int colorBlue = rgbMaxNumber;
   double fontSize = 25.0;
 
+  void getColors() {
+    colorAlpha =
+        generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+    colorRed =
+        generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+    colorBlue =
+        generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+    colorGreen =
+        generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
+  }
+
+  void getTextColor() {
+    colorText = changeTextColorByBackgroundColorUsecase
+        .changeTextColorByBackgroundColor(
+            colorText, colorAlpha, colorRed, colorBlue, colorGreen);
+  }
+
   void updateColor() {
     setState(() {
-      colorAlpha =
-          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
-      colorRed =
-          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
-      colorBlue =
-          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
-      colorGreen =
-          generateRandomNumberUsecase.generateRandomNumberToARGB(rgbMaxNumber);
-      colorText = changeTextColorByBackgroundColorUsecase
-          .changeTextColorByBackgroundColor(
-              colorText, colorAlpha, colorRed, colorBlue, colorGreen);
+      getColors();
+      getTextColor();
     });
   }
 
