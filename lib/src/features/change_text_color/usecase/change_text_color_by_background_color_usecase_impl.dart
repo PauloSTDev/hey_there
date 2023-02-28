@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hey_there/features/change_text_color/usecase/change_text_color_by_background_color_usecase.dart';
+import 'package:hey_there/src/features/change_text_color/usecase/change_text_color_by_background_color_usecase.dart';
 
 class ChangeTextColorByBackgroundColorUsecaseImpl
     implements ChangeTextColorByBackgroundColorUsecase {

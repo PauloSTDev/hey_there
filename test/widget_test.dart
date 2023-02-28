@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hey_there/screens/home_page_screen.dart';
+import 'package:hey_there/src/screens/home_page_screen.dart';
 
 void main() {
   testWidgets('HomePageScreen has a title', (tester) async {

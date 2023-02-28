@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hey_there/features/change_text_color/usecase/change_text_color_by_background_color_usecase.dart';
-import 'package:hey_there/features/change_text_color/usecase/change_text_color_by_background_color_usecase_impl.dart';
-import 'package:hey_there/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase.dart';
-import 'package:hey_there/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase_impl.dart';
+import 'package:hey_there/src/features/change_text_color/usecase/change_text_color_by_background_color_usecase.dart';
+import 'package:hey_there/src/features/change_text_color/usecase/change_text_color_by_background_color_usecase_impl.dart';
+import 'package:hey_there/src/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase.dart';
+import 'package:hey_there/src/features/generate_random_number_to_argb/usecase/generate_random_number_to_argb_usecase_impl.dart';
 
 /// Screen where we will see Randomly Background Color
 class HomePageScreen extends StatefulWidget {
