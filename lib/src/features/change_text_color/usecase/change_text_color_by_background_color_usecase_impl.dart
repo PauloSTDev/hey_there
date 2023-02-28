@@ -6,13 +6,22 @@ class ChangeTextColorByBackgroundColorUsecaseImpl
   @override
   Color changeTextColorByBackgroundColor(
       int colorAlpha, int colorRed, int colorBlue, int colorGreen) {
+    colorAlpha = (colorAlpha < 0) ? 0 : colorAlpha;
+    colorRed = (colorRed < 0) ? 0 : colorRed;
+    colorGreen = (colorGreen < 0) ? 0 : colorGreen;
+    colorBlue = (colorBlue < 0) ? 0 : colorBlue;
+
+    if (colorAlpha == 0 && colorRed == 0 && colorGreen == 0 && colorBlue == 0) {
+      return Colors.black;
+    }
+
     ///Average max of Alpha Color, we will use to know if colorAlpha is above this average
     final int averageMaxColorAlpha = 255 ~/ 2;
 
     ///Average max of rgb, we will use to compare with summedRGB
     final int averageMaxRgb = (255 * 3) ~/ 2;
 
-    ///Sum of RGB (Ramdomly numbers)
+    ///Sum of RGB (Randomly numbers)
     final int summedRGB = colorRed + colorBlue + colorGreen;
 
     ///Compare if colorAlpha is above or equal your average max
